@@ -24,6 +24,7 @@
 </template>
 
 <script>
+  import loginService from '../services/login.js'
   export default {
     name: 'App',
     methods: {
@@ -39,9 +40,15 @@
           value: event.target.value
         })
       },
-      submitForm(e) {
+      async submitForm(e) {
         e.preventDefault()
-        alert( this.$store.getters.username + " " + this.$store.getters.password)
+        await loginService.login(this.$store.getters.username, this.$store.getters.password)
+          .then(data => {
+            console.log(data)
+          })
+          .catch(error => {
+            console.log(error)
+          })
       }
     }
   }
