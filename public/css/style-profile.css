@@ -1,0 +1,35 @@
+.followButton {
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 150px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.followButton[data-follow='Following'] {
+	background-color: #068481;
+}
+
+.followButton[data-follow='Follow'] {
+	background-color: #C08189;
+}
+
+.userProfileInner {
+    width: max-content;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 50px;
+}
+
+.extendLink {
+    position: relative;
+    top: 20px;
+}
+
+.userProfileInner > .extendLink > .imageWrapWrap > .imageWrap {
+    padding-top: 0px;
+    width: max-content;
+}

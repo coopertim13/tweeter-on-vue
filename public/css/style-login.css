@@ -1,0 +1,262 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Heebo', sans-serif;
+	background-color: #323B58;
+}
+
+.title {
+	font-family: 'Montserrat', sans-serif;
+	color: #323B58;
+}
+
+.inner-sign-in {
+	width: 90%;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.inner-sign-in > .title-outer {
+	width: 50%;
+}
+
+.inner-sign-in > .form-outer {
+	width: 50%;
+	text-align: center;
+}
+
+.reg-title {
+	font-size: 7em;
+	margin: 0;
+	color: white;
+}
+
+.slogan {
+	font-size: 25px;
+	color: #C08189;
+	font-weight: bold;
+}
+
+.sign-in-form {
+	width: 100%;
+	border-radius: 20px;
+	background-color: #C08189;
+	padding: 20px 0px 20px 0px;
+	border: 2px solid white;
+}
+
+.sign-in-form > input, .sign-in-form > .name > input {
+	width: 90%;
+	padding: 15px;
+	display: inline-block;
+	border: 1px solid lightgray;
+	background: white;
+	text-align: center;
+	font-size: 20px;
+  }
+
+.sign-in-form > input[type=submit] {
+	background-color: #323B58;
+    color: white;
+    margin-top: 15px;
+}
+
+.sign-in-form > input[type=submit]:hover {
+	background-color: #323B78;
+	cursor: pointer;
+}
+
+.title-inner {
+	margin-top: -20px;
+}
+
+.register-but {
+	width: 90%;
+	padding: 15px;
+	font-size: 20px;
+	background-color: #068481;
+	color: white;
+    border: none;
+    margin-top: 15px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.register-but:hover {
+	background-color: #068461;
+	cursor: pointer;
+}
+
+.wrongCreds {
+    display: none;
+	color: white;
+	margin-top: 15px;
+	border: 3px solid #CC0000;
+	background-color: #CC0000;
+}
+
+.register-form {
+	background-color: #068481 !important;
+}
+
+.register-head {
+	width: 90%;
+	padding: 20px;
+	font-size: 20px;
+	color: white;
+	border: none;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 30px;
+	margin-top: -25px;
+	font-weight: bold;
+}
+
+.register-form > input[type=submit] {
+	background-color: #C08189 !important;
+}
+
+.register-form > input[type=submit]:hover {
+	background-color: #C08199 !important;
+}
+
+.back-to-sign-in {
+	position: relative;
+	color: white;
+	float: left;
+	display: block;
+	margin: 20px;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.back-to-sign-in:hover {
+	color: #C08189;
+}
+
+.name {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	display: inline;
+}
+
+.name > input {
+	width: 45% !important;
+	text-align: center;
+	align-items: center;
+}
+
+.name > .form-age {
+	width: 30% !important;
+	text-align: center;
+	align-items: center;
+}
+
+.name > .form-email {
+	width: 60% !important;
+	text-align: center;
+	align-items: center;
+}
+
+.profile-pic-text {
+	color: white;
+}
+
+label > [type=radio] { 
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+label > [type=radio] + img {
+	filter: grayscale(100%);
+	cursor: pointer;
+}
+
+label > [type=radio]:hover + img {
+	filter: grayscale(0%);
+}
+
+label > [type=radio]:checked + img {
+	filter: grayscale(0%);
+}
+
+img.profile-picture-select {
+	width: 100px;
+}
+
+.loader-container {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading-text {
+	color: white;
+	font-size: 50px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.guestButton {
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-size: 18px;
+	float: right;
+	margin: 20px;
+	font-weight: bold;
+}
+
+.guestButton:hover {
+	color: #C08189;
+}
+
+@media only screen and (max-width: 1400px) {
+	.inner-sign-in {
+		flex-direction: column;
+		width: auto;
+	}
+	.inner-sign-in > .title-outer {
+		width: 100%;
+		text-align: center;
+	}
+	.inner-sign-in > .form-outer {
+		width: 70%;
+		margin-top: 30px;
+		padding-bottom: 30px;
+	}
+	.title-inner {
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (max-width: 920px) {
+	.inner-sign-in > .form-outer {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.inner-sign-in {
+		width: 90%;
+	}
+	.reg-title {
+		font-size: 5em;
+	}
+	.inner-sign-in > .title-outer {
+		display: inline;
+	}
+}
