@@ -89,12 +89,14 @@
       },
       async submitForm(e) {
         e.preventDefault()
-        await registerService.register(this.$store.getters.new_username, this.$store.getters.new_password,
-                                        this.$store.getters.first_name, this.$store.getters.last_name,
-                                        this.$store.getters.email, this.$store.getters.age,
-                                        this.$store.getters.profile_picture)
+        await registerService.register(this.username, this.password,
+                                        this.first_name, this.last_name,
+                                        this.email, this.age, this.profile_picture)
           .then(data => {
-            console.log(data)
+            this.$store.commit('change', {
+              name: "user",
+              value: data
+            })
             this.$store.commit('change', {
               name: "loggedIn",
               value: true
