@@ -42,9 +42,12 @@
       },
       async submitForm(e) {
         e.preventDefault()
-        await loginService.login(this.state.username, this.state.password)
+        await loginService.login(this.username, this.password)
           .then(data => {
-            console.log(data)
+            this.$store.commit('change', {
+              name: "user",
+              value: data
+            })
             this.$store.commit('change', {
               name: "loggedIn",
               value: true
@@ -58,4 +61,3 @@
     }
   }
 </script>
-
