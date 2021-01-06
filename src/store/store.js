@@ -2,8 +2,7 @@ import { createStore } from 'vuex';
 
 const store = createStore({
     state: {
-        username: '',
-        password: ''
+        loggedIn: false
     },
     mutations: {
         change(state, theChange) {
@@ -14,8 +13,7 @@ const store = createStore({
         }
     },
     getters: {
-        username: state => state.username,
-        password: state => state.password
+        loggedIn: state => state.loggedIn
     }
 })
 
