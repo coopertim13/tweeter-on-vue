@@ -101,6 +101,9 @@
               name: "loggedIn",
               value: true
             })
+            localStorage.setItem("token", data.token)
+            localStorage.setItem("username", data.username)
+            localStorage.setItem("profile_picture", data.profile_picture)
             this.$router.push('/home')
           })
           .catch(error => {
