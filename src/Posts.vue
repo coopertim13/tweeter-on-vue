@@ -8,7 +8,7 @@
                         <h4 className = "userNameDate">{{post.date}}</h4>
                     </div>
                     <p v-html=post.content className = "postContent"></p>
-                    <img alt = "profilePicture" className="postProfilePicture" :src = "getImgUrl(post.author_profile_picture)"/>
+                    <img alt = "profilePicture" className="postProfilePicture" :src = "getImg(post.author_profile_picture)"/>
                     <Delete/>
                 </div>
                 <div className = "postStatsBar">
@@ -25,7 +25,7 @@
                                 <a href = "#" className="postLink blackLink notBold"><strong>{{comment.comment_username}}</strong></a><br/>
                                 <span className = "commentDate">{{comment.comment_date}}</span>
                             </div>
-                            <img alt = "profilePicture" className="postProfilePicture commentDP" :src = "getImgUrl(comment.comment_username_profile_picture)" width="30"/>
+                            <img alt = "profilePicture" className="postProfilePicture commentDP" :src = "this.getImg(comment.comment_username_profile_picture)" width="30"/>
                         </div>
                         <div className = "commentDisplayComment">
                             {{comment.comment_content}}
@@ -49,11 +49,6 @@ export default {
     },
     beforeCreate: function() {
       this.$store.dispatch('getAllPosts');
-    },
-    methods: {
-        getImgUrl: function(pic) {
-            return require('./images/'+pic+'.png')
-        }
     }
 }
 </script>

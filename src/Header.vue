@@ -1,11 +1,39 @@
 <template>
     <div>
-        <h1>Header</h1>
+        <header>
+            <div className = "header-title">
+                <h1 className = "title pink-title">Tweeter</h1>
+            </div>
+            <div className = "header-nav">
+                <nav>
+                    <ul>
+                        <li><a href = "/"><i className="fas fa-home"></i>Home</a></li>
+                        <li><a href = "/hashtags"><i className="fas fa-hashtag"></i>Hashtags</a></li>
+                        <li><a href = "/users"><i className="fas fa-user"></i>Users</a></li>
+                        <li><a href = "/me"><img className="userIcon" alt="profilePicture" :src = "getImg(this.$store.getters.user.profile_picture)" width="50"/></a></li>
+                        <li><a href = "/" onClick={logout}><i className="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div className = "titleHeader">{{title}}</div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    methods: {
+        logout: function() {
+            this.$store.commit('change', {
+                name: "loggedIn",
+                value: false
+            })
+            this.$store.commit('change', {
+                name: "user",
+                value: null
+            })
+        }
+    }
 }
 </script>
