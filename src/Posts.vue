@@ -1,10 +1,39 @@
 <template>
     <div className = "allPosts">
-        <h1>All Posts</h1>
-        {{this.$store.getters.allPosts}}
-        <Delete/>
-        <LikeDislike/>
-        <Comment/>
+        <ul className = "postListOuter">
+            <li v-for="(post, index) in this.$store.getters.allPosts" :key=index className = "postListInner">
+                <div className = "postBody">
+                    <div className = "postUserAndTime">
+                        <h2 className = "userNamePost"><a className = "postLink" href = "#">{{post.author}}</a></h2>
+                        <h4 className = "userNameDate">{{post.date}}</h4>
+                    </div>
+                    <p v-html=post.content className = "postContent"></p>
+                    <img alt = "profilePicture" className="postProfilePicture" :src = "getImgUrl(post.author_profile_picture)"/>
+                    <Delete/>
+                </div>
+                <div className = "postStatsBar">
+                    <div className = "likeDislike">
+                        <LikeDislike/>
+                    </div>
+                    <div className = "statsText">
+                        <span className="pointerObject"><strong>{{post.likes.length}}</strong> likes</span>, <span className="pointerObject"><strong>{{post.dislikes.length}}</strong> dislikes</span>, <strong>{{post.comments.length}}</strong> comments
+                    </div>
+                </div>
+                    <div v-for="(comment, index) in post.comments" :key=index className = "commentDisplay">
+                        <div className = "commentDisplayUser">
+                            <div className = "commentComment">
+                                <a href = "#" className="postLink blackLink notBold"><strong>{{comment.comment_username}}</strong></a><br/>
+                                <span className = "commentDate">{{comment.comment_date}}</span>
+                            </div>
+                            <img alt = "profilePicture" className="postProfilePicture commentDP" :src = "getImgUrl(comment.comment_username_profile_picture)" width="30"/>
+                        </div>
+                        <div className = "commentDisplayComment">
+                            {{comment.comment_content}}
+                        </div>
+                    </div>
+                <Comment/>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -21,5 +50,10 @@ export default {
     beforeCreate: function() {
       this.$store.dispatch('getAllPosts');
     },
+    methods: {
+        getImgUrl: function(pic) {
+            return require('./images/'+pic+'.png')
+        }
+    }
 }
 </script>
