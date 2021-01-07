@@ -11,8 +11,7 @@ export default {
         async deletePost() {
             await postService.deletePost(this.$store.getters.user, this.tweet)
                 .then(result => {
-                    this.$store.dispatch('getAllPosts');
-                    this.$store.dispatch('getUserDetails');
+                    this.refresh()
                 })
                 .catch(error => {
 
@@ -20,7 +19,8 @@ export default {
         }
     },
     props: {
-        tweet: Object
+        tweet: Object,
+        refresh: Function
     }
 }
 </script>

@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div className="column middle-content">
-                <Posts :posts="userPosts"></Posts>
+                <Posts :posts="userPosts" :refresh="this.refreshUser()"></Posts>
             </div>
         </div>
     </div>
@@ -38,12 +38,17 @@ export default {
     components: {
         Header, MiniUserProfile, Follow, Posts
     },
-    beforeCreate: async function() {
-        await profileService.profile_authenticated(this.$store.getters.user, this.$route.params.name)
-            .then(result => {
-                this.userProfile = result.data.userProfile
-                this.userPosts = result.data.userPosts
-            })
+    methods: {
+        refreshUser: async function() {
+            await profileService.profile_authenticated(this.$store.getters.user, this.$route.params.name)
+                .then(result => {
+                    this.userProfile = result.data.userProfile
+                    this.userPosts = result.data.userPosts
+                })
+        }
+    },
+    created: function() {
+        this.refreshUser()
     }
 }
 </script>

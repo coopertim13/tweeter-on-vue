@@ -33,7 +33,7 @@
                         <label for="s2">Mentioned</label>
                     </li>
                 </ul>
-                <Posts :posts="this.$store.getters.allPosts"/>
+                <Posts :posts="this.$store.getters.allPosts" :refresh="this.refreshHome()"/>
             </div>
         </div>
     </div>
@@ -49,9 +49,14 @@ import Posts from './Posts.vue'
     components: {
         Header, MiniUserProfile, PostForm, Posts
     },
-    beforeCreate: function() {
-        this.$store.dispatch('getAllPosts');
-        this.$store.dispatch('getUserDetails');
+    methods: {
+        refreshHome: function() {
+            this.$store.dispatch('getAllPosts');
+            this.$store.dispatch('getUserDetails');
+        }
+    },
+    created: function() {
+        this.refreshHome()
     }
   }
 </script>

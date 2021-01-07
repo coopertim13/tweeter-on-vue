@@ -27,7 +27,7 @@
         components: {
             Header, MiniUserProfile
         },
-        beforeCreate: function() {
+        created: function() {
             this.$store.dispatch('getAllUsers')
         }
     }

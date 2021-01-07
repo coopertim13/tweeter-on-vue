@@ -48,7 +48,8 @@ export default {
         Delete, LikeDislike, Comment
     },
     props: {
-        posts: Object
+        posts: Object,
+        refresh: Function
     }
 }
 </script>
