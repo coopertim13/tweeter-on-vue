@@ -3,7 +3,7 @@
         <Header :title="'#'+this.$route.params.tag"></Header>
         <div className="row">
             <div className="column middle-content">
-                <Posts :posts="hashtagPosts" :refresh="this.refreshHashtag()"></Posts>
+                <Posts :posts="hashtagPosts" :refresh="refreshHashtag"></Posts>
             </div>
         </div>
     </div>

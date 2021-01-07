@@ -6,12 +6,12 @@
                 <div className = "inner-side-col">
                     <div className = "inner-side-col-wrap">
                         <MiniUserProfile :user="userProfile"/>
-                        <center><Follow :userProfile="userProfile.username" :followText="followText" :refresh="this.refreshUser()"/></center>
+                        <center><Follow :userProfile="userProfile.username" :followText="followText" :refresh="refreshUser"/></center>
                     </div>
                 </div>
             </div>
             <div className="column middle-content">
-                <Posts :posts="userPosts" :refresh="this.refreshUser()"/>
+                <Posts :posts="userPosts" :refresh="refreshUser"/>
             </div>
         </div>
     </div>
