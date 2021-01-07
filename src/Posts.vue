@@ -31,7 +31,7 @@
                             {{comment.comment_content}}
                         </div>
                     </div>
-                <Comment/>
+                <Comment :tweet="post.post_id" :refresh="refresh"/>
             </li>
         </ul>
     </div>
