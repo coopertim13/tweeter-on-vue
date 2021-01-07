@@ -5,7 +5,7 @@
             <div className="column left-profile">
                 <div className = "inner-side-col">
                     <div className = "inner-side-col-wrap">
-                        <MiniUserProfile/>
+                        <MiniUserProfile :user="this.$store.getters.userDetails"/>
                     </div>
                 </div>
             </div>
