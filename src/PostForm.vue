@@ -28,10 +28,11 @@ export default {
             await postTweet.post_tweet(this.$store.getters.user, finalPost)
                 .then(response => {
                     document.getElementById("make-post-form").reset()
+                    this.tweet = ''
+                    this.charactersLeft = 250
                     this.$store.dispatch('getAllPosts');
                     this.$store.dispatch('getUserDetails');
                 })
-
         },
         handleTweet: function(event) {
             this.tweet = event.target.value
