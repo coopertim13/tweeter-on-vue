@@ -35,6 +35,9 @@ export default {
             })
             localStorage.clear()
         }
+    },
+    props: {
+        title: String
     }
 }
 </script>

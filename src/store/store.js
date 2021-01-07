@@ -1,7 +1,6 @@
 import { createStore } from 'vuex';
 import postService from '../../services/posts.js'
 import homeService from '../../services/home.js'
-import home from '../../services/home.js';
 
 const store = createStore({
     state: {

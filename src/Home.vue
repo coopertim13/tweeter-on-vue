@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header/>
+        <Header title="Home"/>
         <div className="row">
             <div className="column left-profile">
                 <div className = "inner-side-col">
