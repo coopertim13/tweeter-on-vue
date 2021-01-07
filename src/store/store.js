@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 import postService from '../../services/posts.js'
 import homeService from '../../services/home.js'
 import userService from '../../services/user.js'
-import user from '../../services/user.js';
+import hashtagService from '../../services/hashtag.js'
 
 const store = createStore({
     state: {
@@ -10,7 +10,8 @@ const store = createStore({
         allPosts: null,
         user: null,
         userDetails: null,
-        allUsers: null
+        allUsers: null,
+        allHashtags: null
     },
     mutations: {
         change(state, theChange) {
@@ -41,6 +42,13 @@ const store = createStore({
                 name: "allUsers",
                 value: allUsers.data
             })
+        },
+        async getAllHashtags({ commit }) {
+            const allHashtags = await hashtagService.get_all()
+            commit('change', {
+                name: "allHashtags",
+                value: allHashtags.data.arr
+            })
         }
     },
     getters: {
@@ -48,7 +56,8 @@ const store = createStore({
         allPosts: state => state.allPosts,
         user: state => state.user,
         userDetails: state => state.userDetails,
-        allUsers: state => state.allUsers
+        allUsers: state => state.allUsers,
+        allHashtags: state => state.allHashtags
     }
 })
 

@@ -45,6 +45,9 @@ export default {
                     this.userProfile = result.data.userProfile
                     this.userPosts = result.data.userPosts
                 })
+                .catch(error => {
+
+                })
         }
     },
     created: function() {

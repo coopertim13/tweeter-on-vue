@@ -5,6 +5,8 @@ import Login from "../Login.vue"
 import Register from "../Register.vue"
 import Users from "../Users.vue"
 import User from "../User.vue"
+import Hashtags from "../Hashtags.vue"
+import Hashtag from "../Hashtag.vue"
 
 const router = createRouter({
     history: createWebHistory(),
@@ -24,7 +26,9 @@ const router = createRouter({
         { path: '/home', component: Home},
         { path: '/register', component: Register},
         { path: '/users', component: Users},
-        { path: '/users/:name', component: User}
+        { path: '/users/:name', component: User},
+        { path: '/hashtags', component: Hashtags},
+        { path: '/hashtags/:tag', component: Hashtag}
     ]
 })
 
