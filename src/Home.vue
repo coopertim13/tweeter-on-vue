@@ -50,8 +50,8 @@ import Posts from './Posts.vue'
         Header, MiniUserProfile, PostForm, Posts
     },
     beforeCreate: function() {
-      this.$store.dispatch('getAllPosts');
-      this.$store.dispatch('getUserDetails');
+        this.$store.dispatch('getAllPosts');
+        this.$store.dispatch('getUserDetails');
     }
   }
 </script>

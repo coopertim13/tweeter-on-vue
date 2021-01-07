@@ -20,7 +20,6 @@ const store = createStore({
     },
     actions: {
         async getAllPosts({ commit }) {
-            console.log('hi')
             const posts = await postService.getAll()
             commit('change', {
                 name: "allPosts",
