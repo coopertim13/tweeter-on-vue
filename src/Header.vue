@@ -10,7 +10,7 @@
                         <li><a href = "/"><i className="fas fa-home"></i>Home</a></li>
                         <li><a href = "/hashtags"><i className="fas fa-hashtag"></i>Hashtags</a></li>
                         <li><a href = "/users"><i className="fas fa-user"></i>Users</a></li>
-                        <li><a href = "/me"><img className="userIcon" alt="profilePicture" :src = "getImg(this.$store.getters.user.profile_picture)" width="50"/></a></li>
+                        <li><a :href = "'/users/'+this.$store.getters.user.username"><img className="userIcon" alt="profilePicture" :src = "getImg(this.$store.getters.user.profile_picture)" width="50"/></a></li>
                         <li><a href = "/" @click="logout"><i className="fas fa-sign-out-alt"></i></a></li>
                     </ul>
                 </nav>

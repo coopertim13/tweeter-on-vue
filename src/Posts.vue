@@ -9,11 +9,11 @@
                     </div>
                     <p v-html=post.content className = "postContent"></p>
                     <img alt = "profilePicture" className="postProfilePicture" :src = "getImg(post.author_profile_picture)"/>
-                    <Delete :tweet="post"/>
+                    <Delete :tweet="post" :refresh="refresh"/>
                 </div>
                 <div className = "postStatsBar">
                     <div className = "likeDislike">
-                        <LikeDislike/>
+                        <LikeDislike :tweet="post" :refresh="refresh" :like="checkLike(post)" :dislike="checkDislike(post)"/>
                     </div>
                     <div className = "statsText">
                         <span className="pointerObject"><strong>{{post.likes.length}}</strong> likes</span>, <span className="pointerObject"><strong>{{post.dislikes.length}}</strong> dislikes</span>, <strong>{{post.comments.length}}</strong> comments
@@ -50,6 +50,20 @@ export default {
     props: {
         posts: Object,
         refresh: Function
+    },
+    methods: {
+        checkLike: function(tweet) {
+            if(tweet.likes.filter(p => p.like_username === this.$store.getters.user.username)[0]) {
+                return true
+            }
+            return false
+        },
+        checkDislike: function(tweet) {
+            if(tweet.dislikes.filter(p => p.dislike_username === this.$store.getters.user.username)[0]) {
+                return true
+            }
+            return false
+        }
     }
 }
 </script>

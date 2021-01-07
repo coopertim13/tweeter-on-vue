@@ -33,7 +33,7 @@ export default {
         }
     },
     props: {
-        tweet: Object,
+        tweet: String,
         refresh: Function
     }
 }
