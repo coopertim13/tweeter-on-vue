@@ -48,6 +48,10 @@ import Posts from './Posts.vue'
     name: 'Home',
     components: {
         Header, MiniUserProfile, PostForm, Posts
+    },
+    beforeCreate: function() {
+      this.$store.dispatch('getAllPosts');
+      this.$store.dispatch('getUserDetails');
     }
   }
 </script>

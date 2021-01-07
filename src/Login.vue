@@ -55,10 +55,10 @@
             localStorage.setItem("token", data.token)
             localStorage.setItem("username", data.username)
             localStorage.setItem("profile_picture", data.profile_picture)
+            this.$store.dispatch('getUserDetails');
             this.$router.push('/home')
           })
           .catch(error => {
-            console.log(error)
             document.getElementsByClassName("wrongCreds")[0].style.display='block'
           })
       }

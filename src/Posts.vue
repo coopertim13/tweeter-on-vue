@@ -1,6 +1,6 @@
 <template>
     <div className = "allPosts">
-        <ul className = "postListOuter">
+        <ul v-if="this.$store.getters.allPosts" className = "postListOuter">
             <li v-for="(post, index) in this.$store.getters.allPosts" :key=index className = "postListInner">
                 <div className = "postBody">
                     <div className = "postUserAndTime">
@@ -46,9 +46,6 @@ export default {
     name: 'Posts',
     components: {
         Delete, LikeDislike, Comment
-    },
-    beforeCreate: function() {
-      this.$store.dispatch('getAllPosts');
     }
 }
 </script>

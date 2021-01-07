@@ -28,6 +28,7 @@ if(localStorage.getItem("token") && localStorage.getItem("username") && localSto
         name: "loggedIn",
         value: true
     })
+    console.log(user)
 }
 else {
     localStorage.clear()
