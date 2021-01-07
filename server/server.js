@@ -1,6 +1,5 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
-const app = express()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
@@ -8,13 +7,14 @@ const stripHtml = require('string-strip-html')
 const { uuid } = require('uuidv4')
 const User = require('./models/user.js')
 const Post = require('./models/post.js')
+const path = require("path")
 const serveStatic = require('serve-static')
 require('dotenv').config()
+
+const app = express()
 app.use(cors())
 app.use(express.json())
-app.use(serveStatic(__dirname + "/dist"))
-
-const path = require("path")
+app.use('/', serveStatic(path.join(__dirname, '../dist')))
 
 const getTokenFrom = (request) => {
   const authorization = request.get('authorization')
@@ -722,8 +722,8 @@ app.put('/api/like_dislike', async (request, response) => {
   }
 })
 
-app.get('*', (req, res) => { //doesn't try to load index.html file in current directory, always uses index.html in /build
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+app.get('/.*/', (req, res) => { //doesn't try to load index.html file in current directory, always uses index.html in /build
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 const PORT = process.env.PORT || 3002
