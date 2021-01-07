@@ -1,0 +1,545 @@
+header {
+	width: 100%;
+	height: 100px;
+	background-color: #242a3d;
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	z-index: 2;
+	border-bottom: 5px solid #C08189
+}
+
+i {
+	font-size: 20px;
+	padding-right: 10px;
+}
+
+header > .header-nav {
+	width: 90%;
+}
+
+header > .header-title {
+	margin: 10px;
+	width: 10%;
+	padding-left: 30px;
+}
+
+nav > ul {
+	list-style-type: none;
+	overflow: hidden;
+	float: right;
+	margin-top: 16px;
+	margin-right: 20px;
+}
+
+nav > ul > li {
+	display: table-cell;
+    vertical-align: middle;
+    float:left;
+	padding: 20px;
+}
+
+nav > ul > li > a {
+	font-size: 20px;
+	font-family: 'Heebo', sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+
+nav > ul > li > a:hover {
+	color: #C08189;
+}
+
+.pink-title {
+	color: #C08189;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+	position: relative;
+	top: 220px;
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+	padding: 10px;
+	min-height: calc(100vh - 220px);
+}
+
+.left-profile {
+	height: auto;
+	width: 250px;
+	float: left;
+	background-color: white;
+}
+
+.right-stats {
+	height: auto;
+	width: 250px;
+	float: right;
+	background-color: white;
+}
+
+.inner-side-col {
+	position: fixed;
+	width: 230px;
+}
+
+.inner-side-col-wrap {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.middle-content {
+	flex: 1;
+	background-color: #CFD4E3;
+	padding: 30px;
+	z-index: 1;
+}
+
+i.fa-sign-out-alt {
+    color: #068481;
+    font-size: 30px;
+    top: -2px;
+    position: relative;
+}
+
+.imageWrap {
+	width: 100%;
+	background: white;
+	border-radius: 130px;
+	border: 3px solid white;
+	padding-top: 15px;
+}
+
+.imageWrap > img {
+	display: inherit;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.userFullNameHome, .userNameHome {
+	text-align: center;
+}
+
+.userFullNameHome {
+	padding: 0;
+	margin: 20px 0px 0px 0px;
+}
+
+.userNameHome {
+	padding: 0;
+	margin: 0;
+}
+
+.userStatHome {
+	text-align: center;
+	display: block;
+	font-size: 20px;
+}
+
+#post-form {
+	width: 100%;
+	height: 100px;
+	font-size: 17px;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: 'Heebo', sans-serif !important;
+}
+
+.characters-left {
+	float: right;
+	margin-top: -50px;
+	margin-right: 10px;
+}
+
+.tweet-submit {
+	padding: 15px;
+	background-color: #068481;
+	color: white;
+	border: none;
+	width: 150px;
+	font-size: 17px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+/* POSTS */
+.postBody {
+	width: 100%;
+	min-height: 100px;
+	color: white;
+	position: relative;
+}
+
+.postContent {
+	position: absolute;
+	width: 62%;
+	right: 0;
+	padding-right: 15px;
+	margin-top: 20px;
+}
+
+.postListOuter {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.postListInner {
+	margin-bottom: 20px;
+}
+
+.allPosts ul li:nth-child(even) {
+	background-color: #323B58;
+}
+
+.allPosts ul li:nth-child(odd) {
+    background-color: #C08189;
+}
+
+.postProfilePicture {
+	width: 100px;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+.postUserAndTime {
+	position: absolute;
+	margin-left: 140px;
+	margin-top: 25px;
+}
+
+.userNamePost, .userNameDate {
+	margin: 0;
+	padding: 0;
+}
+
+.noLoginMessageTweets {
+	padding-bottom: 20px;
+}
+
+.postStatsBar {
+	width: 100%;
+	background-color: white;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.postStatsBar > .likeDislike {
+	width: 50%;
+	color: black;
+	margin-left: 20px;
+}
+
+.postStatsBar > .statsText {
+	width: 50%;
+	color: black;
+	text-align: right;
+	margin-right: 20px;
+}
+
+/* LIKE / DISLIKE */
+.like-button[data-like=true] {
+	color: blue;
+}
+
+.dislike-button[data-dislike=true] {
+	color: red;
+}
+
+.like-dislike {
+	cursor: pointer;
+}
+
+.postLink {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.deletePost {
+	color: red;
+	position: absolute;
+	font-size: 25px;
+	right: 0;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.comment-submit {
+	display: none;
+}
+
+#comment-form {
+	width: 100%;
+	border: none;
+	height: 50px;
+	font-size: 15px;
+	padding-left: 10px;
+	font-family: 'Heebo', sans-serif !important;
+}
+
+.commentDisplay {
+	display: flex;
+	flex-direction: row;
+	background-color: #ededed;
+	margin: 2px 0px 2px 0px;
+	padding: 5px;
+}
+
+.commentDisplay > .commentDisplayUser {
+	width: 30%;
+}
+
+.commentDisplay > .commentDisplayComment {
+	width: 70%;
+	margin-top: 18px;
+	text-align: right;
+	padding-right: 20px;
+}
+
+.commentDP {
+	width: 50px;
+	margin-left: 5px;
+}
+
+.commentComment {
+	position: absolute;
+	padding-left: 75px;
+	font-size: 20px;
+	padding-top: 5px;
+}
+
+.commentDate {
+	font-size: 14px;
+	top: -5px;
+	position: relative;
+}
+
+.titleHeader {
+	top: 100px;
+	position: fixed;
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	color: white;
+	padding-top: 30px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 50px;
+}
+
+.imageWrapWrap {
+	margin-top: -110px;
+}
+
+.allUsers {
+	top: 20px;
+	position: relative;
+}
+
+.userIcon {
+	margin-top: -12px;
+}
+
+/* hashtag */
+
+.allPosts ul li:nth-child(even) {
+	background-color: #323B58;
+}
+
+.allPosts ul li:nth-child(odd) {
+    background-color: #C08189;
+}
+
+.hashtagBox {
+	width: max-content;
+	height: 350px;
+	display: inline-block;
+	margin: 20px;
+	min-width: 200px;
+	border-radius: 10px;
+}
+
+.hashtagBox > .hashOnly {
+	height: 175px;
+	color: white;
+	font-size: 210px;
+}
+
+.hashItself {
+	position: relative;
+	top: -60px;
+}
+
+.hashtagBox > .hashtagProperties {
+	height: 175px;
+	color: black;
+	background-color: white;
+	font-size: 20px;
+}
+
+.hashtagHashtag {
+	margin: 0;
+	padding: 0px 10px 40px 10px;
+	position: relative;
+	top: 30px;
+}
+
+.hashtagCount {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.notBold {
+	font-weight: normal !important;
+}
+
+.blackLink {
+	color: black !important;
+}
+
+.filterOptions {
+	list-style-type: none;
+	overflow: hidden;
+	text-align: right;
+}
+
+.filterOptions > li {
+	display: inline;
+	margin: 15px;
+}
+
+/* ALL CSS WITHIN THIS COMMENT FROM https://codepen.io/aaroniker/pen/ZEYoxEY */
+
+input.switch {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	height: 21px;
+	outline: none;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	margin: 0;
+	cursor: pointer;
+	border: 1px solid var(--bc, #BBC1E1);
+	background: var(--b, #fff);
+	transition: #fff .3s, border-color .3s, box-shadow .2s;
+	width: 38px;
+	border-radius: 11px;
+}
+
+input.switch:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	background: var(--ab, #BBC1E1);
+	transform: translateX(var(--x, 0));
+}
+
+input.switch:checked {
+	--b: #275EFE;
+	--bc: #275EFE;
+	--d-o: .3s;
+	--d-t: .6s;
+	--d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+	--ab: #fff;
+	--x: 17px;
+}
+
+input.switch:hover {
+	--bc: #275EFE;
+}
+
+input.switch:focus {
+	box-shadow: 0 0 0 2px rgba(39, 94, 254, .3);;
+}
+
+input.switch + label {
+	font-size: 14px;
+	line-height: 21px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 8px;
+}
+
+/* END https://codepen.io/aaroniker/pen/ZEYoxEY CSS */
+
+.popupContainer {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	background-color: rgba(0,0,0,0.4);
+	left: 0;
+	top: 0;
+	z-index: 3;
+}
+
+.popupOuter {
+	position: fixed;
+	width: 400px;
+	height: 400px;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -200px;
+	background-color: white;
+	overflow-y: auto;
+}
+
+.popupInner {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+
+.pointerObject {
+	cursor: pointer;
+}
+
+.titlePopup {
+	position: relative;
+	width: 100%;
+	color: white;
+	text-align: center;
+	padding-bottom: 20px;
+	border-bottom: 2px solid lightgray;
+	background: #068481;
+	padding-top: 20px;
+	margin: 0;
+}
+
+.popupItem {
+	border-bottom: 1px solid lightgray;
+	padding: 15px;
+	margin: 0;
+}
+
+.closePopup {
+	position: absolute;
+	display: block;
+	color: red;
+	z-index: 2;
+	font-size: 50px;
+	right: 0;
+	cursor: pointer;
+}
+
+.pointerObject:hover {
+	color: #068481;
+}
