@@ -33,7 +33,7 @@
                         <label for="s2">Mentioned</label>
                     </li>
                 </ul>
-                <Posts/>
+                <Posts :posts="this.$store.getters.allPosts"/>
             </div>
         </div>
     </div>

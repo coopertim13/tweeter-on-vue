@@ -1,7 +1,7 @@
 <template>
     <div className = "allPosts">
-        <ul v-if="this.$store.getters.allPosts" className = "postListOuter">
-            <li v-for="(post, index) in this.$store.getters.allPosts" :key=index className = "postListInner">
+        <ul v-if="this.posts" className = "postListOuter">
+            <li v-for="(post, index) in this.posts" :key=index className = "postListInner">
                 <div className = "postBody">
                     <div className = "postUserAndTime">
                         <h2 className = "userNamePost"><a className = "postLink" href = "#">{{post.author}}</a></h2>
@@ -46,6 +46,9 @@ export default {
     name: 'Posts',
     components: {
         Delete, LikeDislike, Comment
+    },
+    props: {
+        posts: Object
     }
 }
 </script>
