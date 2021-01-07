@@ -9,7 +9,7 @@
                     </div>
                     <p v-html=post.content className = "postContent"></p>
                     <img alt = "profilePicture" className="postProfilePicture" :src = "getImg(post.author_profile_picture)"/>
-                    <Delete/>
+                    <Delete :tweet="post"/>
                 </div>
                 <div className = "postStatsBar">
                     <div className = "likeDislike">

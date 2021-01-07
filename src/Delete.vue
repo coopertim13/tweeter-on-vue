@@ -3,12 +3,24 @@
 </template>
 
 <script>
+import postService from '../services/posts.js'
+
 export default {
     name: 'Posts',
     methods: {
-        deletePost: function() {
-            
+        async deletePost() {
+            await postService.deletePost(this.$store.getters.user, this.tweet)
+                .then(result => {
+                    this.$store.dispatch('getAllPosts');
+                    this.$store.dispatch('getUserDetails');
+                })
+                .catch(error => {
+
+                })
         }
+    },
+    props: {
+        tweet: Object
     }
 }
 </script>
