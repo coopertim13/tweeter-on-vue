@@ -1,5 +1,5 @@
 <template>
-    <i @click="deletePost" className="fas fa-trash deletePost"></i>
+    <i v-if="this.$store.getters.user && tweet.author === this.$store.getters.user.username" @click="deletePost" className="fas fa-trash deletePost"></i>
 </template>
 
 <script>
