@@ -6,12 +6,12 @@
                 <div className = "inner-side-col">
                     <div className = "inner-side-col-wrap">
                         <MiniUserProfile :user="userProfile"/>
-                        <center><Follow/></center>
+                        <center><Follow :userProfile="userProfile.username" :followText="followText" :refresh="this.refreshUser()"/></center>
                     </div>
                 </div>
             </div>
             <div className="column middle-content">
-                <Posts :posts="userPosts" :refresh="this.refreshUser()"></Posts>
+                <Posts :posts="userPosts" :refresh="this.refreshUser()"/>
             </div>
         </div>
     </div>
@@ -32,7 +32,8 @@ export default {
     data: function() {
         return {
             userProfile: null,
-            userPosts: null
+            userPosts: null,
+            followText: 'Loading follow status...'
         }
     },
     components: {
@@ -44,6 +45,12 @@ export default {
                 .then(result => {
                     this.userProfile = result.data.userProfile
                     this.userPosts = result.data.userPosts
+                    if(result.data.isTrue) {
+                        this.followText = 'Following'
+                    }
+                    else {
+                        this.followText = 'Follow'
+                    }
                 })
                 .catch(error => {
 
