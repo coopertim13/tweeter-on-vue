@@ -722,7 +722,7 @@ app.put('/api/like_dislike', async (request, response) => {
   }
 })
 
-app.get('/.*/', (req, res) => { //doesn't try to load index.html file in current directory, always uses index.html in /build
+app.get('*', (req, res) => { //doesn't try to load index.html file in current directory, always uses index.html in /build
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
