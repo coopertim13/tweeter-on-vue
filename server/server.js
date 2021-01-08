@@ -9,6 +9,7 @@ const User = require('./models/user.js')
 const Post = require('./models/post.js')
 const path = require("path")
 const serveStatic = require('serve-static')
+const Filter = require('bad-words')
 require('dotenv').config()
 
 const app = express()
@@ -263,9 +264,11 @@ app.post('/api/post_comment', async (request, response) => {
   var components = aestTime.split('/')
   var finalDate = components[1]+"/"+components[0]+"/"+components[2]
 
+  const filter = new Filter()
+  
   Post.updateOne(
     { post_id: request.body.post },
-    { $push: { comments: {comment_date: finalDate, comment_username: user, comment_username_profile_picture: profilePicture, comment_content: request.body.comment} }}
+    { $push: { comments: {comment_date: finalDate, comment_username: user, comment_username_profile_picture: profilePicture, comment_content: filter.clean(request.body.comment)} }}
   )
   .then(result => {
     User.updateOne(
@@ -343,10 +346,12 @@ app.post('/api/post_tweet', async (request, response) => {
   finalMentionsObject = JSON.parse(finalMentions);
   finalHashtagsObject = JSON.parse(finalHashtags);
 
+  const filter = new Filter()
+
   const post = new Post({
     post_id: postID,
     date: finalDate,
-    content: newString,
+    content: filter.clean(newString),
     author: user,
     author_profile_picture: profilePicture,
     likes: [],
@@ -492,7 +497,7 @@ app.delete('/api/post', async (request, response) => {
 })
 
 app.get('/api/users', async (request, response) => {
-  await User.find({}).lean()
+  await User.find({}, { password: 0 }).lean()
     .then(result => {
       return response.status(200).json(result)
     })
