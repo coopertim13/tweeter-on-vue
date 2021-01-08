@@ -18,7 +18,7 @@
                         </span>
                     </div>
                     <div className = "statsText">
-                        <span className="pointerObject"><strong>{{post.likes.length}}</strong> likes</span>, <span className="pointerObject"><strong>{{post.dislikes.length}}</strong> dislikes</span>, <strong>{{post.comments.length}}</strong> comments
+                        <span className="pointerObject" @click="managePopup('post', 'likes', post.post_id)"><strong>{{post.likes.length}}</strong> likes</span>, <span className="pointerObject" @click="managePopup('post', 'dislikes', post.post_id)"><strong>{{post.dislikes.length}}</strong> dislikes</span>, <strong>{{post.comments.length}}</strong> comments
                     </div>
                 </div>
                     <div v-for="(comment, index) in post.comments" :key=index className = "commentDisplay">
