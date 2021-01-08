@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div className = "form-outer">
-                <form className = "sign-in-form" v-on:submit="submitForm">
+                <form @input="hideError" id = "sign-in-form" className = "sign-in-form" v-on:submit="submitForm">
                     <input @input="updateUsername" type="text" id="username" name="username" placeholder="Username" required/><br/>
                     <input @input="updatePassword" type="password" id="password" name="password" placeholder="Password" required/><br/>
                     <input type="submit" value="Login"/>
@@ -47,6 +47,9 @@
         })
         this.$router.push('/home')
       },
+      hideError: function() {
+        document.getElementsByClassName("wrongCreds")[0].style.display='none'
+      },
       async submitForm(e) {
         e.preventDefault()
         await loginService.login(this.username, this.password)
@@ -66,6 +69,9 @@
           })
           .catch(error => {
             document.getElementsByClassName("wrongCreds")[0].style.display='block'
+            this.username = ''
+            this.password = ''
+            document.getElementById("sign-in-form").reset()
           })
       }
     }

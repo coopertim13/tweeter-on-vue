@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div className = "form-outer">
-                <form className = "sign-in-form register-form" v-on:submit="submitForm">
+                <form @input="hideError" id = "register-form" className = "sign-in-form register-form" v-on:submit="submitForm">
                     <div className = "register-head">Create an Account</div>
                     <div className = "name">
                         <input type="text" id="first-name" name="first-name" @input="updateFirstName" placeholder="First Name" required/><input type="text" id="last-name" name="last-name" @input="updateLastName" placeholder="Last Name" required/>
@@ -87,6 +87,9 @@
       updateProfilePicture: function(event) {
         this.profile_picture = event.target.id
       },
+      hideError: function() {
+        document.getElementsByClassName("userExists")[0].style.display='none'
+      },
       async submitForm(e) {
         e.preventDefault()
         await registerService.register(this.username, this.password,
@@ -107,7 +110,15 @@
             this.$router.push('/home')
           })
           .catch(error => {
-             document.getElementsByClassName("userExists")[0].style.display='block'
+            document.getElementsByClassName("userExists")[0].style.display='block'
+            this.username = ''
+            this.password = ''
+            this.first_name = ''
+            this.last_name = ''
+            this.age = ''
+            this.email = ''
+            this.profile_picture = ''
+            document.getElementById("register-form").reset()
           })
       }
     }
