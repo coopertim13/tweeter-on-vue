@@ -34,7 +34,7 @@ export default {
                 value: null
             })
             localStorage.clear()
-            this.$router.push('/')
+            this.$router.push('/login')
         }
     },
     props: {

@@ -4,7 +4,7 @@
             <li v-for="(post, index) in this.posts" :key=index className = "postListInner">
                 <div className = "postBody">
                     <div className = "postUserAndTime">
-                        <h2 className = "userNamePost"><a className = "postLink" href = "#">{{post.author}}</a></h2>
+                        <h2 className = "userNamePost"><a className = "postLink" :href = "'/users/'+post.author">{{post.author}}</a></h2>
                         <h4 className = "userNameDate">{{post.date}}</h4>
                     </div>
                     <p v-html=post.content className = "postContent"></p>
@@ -24,7 +24,7 @@
                     <div v-for="(comment, index) in post.comments" :key=index className = "commentDisplay">
                         <div className = "commentDisplayUser">
                             <div className = "commentComment">
-                                <a href = "#" className="postLink blackLink notBold"><strong>{{comment.comment_username}}</strong></a><br/>
+                                <a :href = "'/users/'+comment.comment_username" className="postLink blackLink notBold"><strong>{{comment.comment_username}}</strong></a><br/>
                                 <span className = "commentDate">{{comment.comment_date}}</span>
                             </div>
                             <img alt = "profilePicture" className="postProfilePicture commentDP" :src = "this.getImg(comment.comment_username_profile_picture)" width="30"/>
