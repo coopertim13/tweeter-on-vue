@@ -9,7 +9,10 @@ const profile_unauthenticated = (displayUsername) => {
 
 const profile_authenticated = (user, displayUsername) => {
     if(!user) {
-        return new Promise(() => null)
+        const params = {
+            profileName: { toJSON: () => displayUsername}
+        }
+        return axios.get('/api/profile_guest', { params })
     }
 
     const config = {

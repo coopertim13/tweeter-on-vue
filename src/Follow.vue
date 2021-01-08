@@ -1,5 +1,5 @@
 <template>
-    <button @click="handleFollow" className = "followButton" :data-follow="followState">{{followState}}</button>
+    <button v-if="this.$store.getters.user" @click="handleFollow" className = "followButton" :data-follow="followState">{{followState}}</button>
 </template>
 
 <script>

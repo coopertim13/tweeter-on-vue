@@ -2,7 +2,7 @@
     <div>
         <Header title="Home"/>
         <div className="row">
-            <div className="column left-profile">
+            <div v-if="this.$store.getters.user" className="column left-profile">
                 <div className = "inner-side-col">
                     <div className = "inner-side-col-wrap">
                         <MiniUserProfile :user="this.$store.getters.userDetails"/>
@@ -11,7 +11,7 @@
             </div>
             <div className="column middle-content">
                 <PostForm/>
-                <ul className="filterOptions">
+                <ul v-if="this.$store.getters.user" className="filterOptions">
                     <li>
                         <input @input="filterPosts" type="checkbox" className="switch" id="setFollowingCheck"/>
                         <label for="s1">Following</label>

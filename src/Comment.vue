@@ -1,5 +1,5 @@
 <template>
-    <form className = "make-comment-form" v-on:submit="commentHandler" :id="'make-comment-form-'+tweet">
+    <form v-if="this.$store.getters.user" className = "make-comment-form" v-on:submit="commentHandler" :id="'make-comment-form-'+tweet">
         <input type = "text" id = "comment-form" name="comment-form" maxLength="50" @input="setComment" placeholder="Write a comment..." required/>
         <input className = "comment-submit" type="submit" value="Post Comment"/>
     </form>

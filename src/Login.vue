@@ -16,7 +16,7 @@
                     <div className = "wrongCreds">Sorry, incorrect username or password.</div>
                 </form>
                 <a className = "register-but" href="/register">Create an Account</a>
-                <span className = "guestButton">Continue as Guest &gt;</span>
+                <span @click="guestLogin" className = "guestButton">Continue as Guest &gt;</span>
             </div>
         </div>
     </div>
@@ -39,6 +39,13 @@
       },
       updatePassword: function(event) {
         this.password = event.target.value
+      },
+      guestLogin: function() {
+        this.$store.commit('change', {
+          name: "loggedIn",
+          value: true
+        })
+        this.$router.push('/home')
       },
       async submitForm(e) {
         e.preventDefault()

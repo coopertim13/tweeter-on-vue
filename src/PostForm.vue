@@ -4,7 +4,7 @@
             <textarea id = "post-form" name="post-form" maxLength="250" @input="handleTweet" v-bind:placeholder="'What\'s on your mind, ' + this.$store.getters.userDetails.first_name + '?'" required form="make-post-form"></textarea>
             <input className = "tweet-submit" type="submit" value="Post Tweet"/>
         </form>
-        <div className = "characters-left"><strong>{{charactersLeft}}</strong> characters left</div>
+        <div v-if="this.$store.getters.userDetails" className = "characters-left"><strong>{{charactersLeft}}</strong> characters left</div>
     </div>
 </template>
 

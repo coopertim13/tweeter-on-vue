@@ -13,7 +13,9 @@
                 </div>
                 <div className = "postStatsBar">
                     <div className = "likeDislike">
-                        <LikeDislike :tweet="post" :refresh="refresh" :like="checkLike(post)" :dislike="checkDislike(post)"/>
+                        <span v-if="this.$store.getters.user">
+                            <LikeDislike :tweet="post" :refresh="refresh" :like="checkLike(post)" :dislike="checkDislike(post)"/>
+                        </span>
                     </div>
                     <div className = "statsText">
                         <span className="pointerObject"><strong>{{post.likes.length}}</strong> likes</span>, <span className="pointerObject"><strong>{{post.dislikes.length}}</strong> dislikes</span>, <strong>{{post.comments.length}}</strong> comments
